@@ -1,8 +1,14 @@
 import React from "react";
-import Sidebar from "./Sidebar/Sidebar";
+import Filters from "../Filters/Filters";
+import Navbar from "../Navbar/Navbar";
 
 const Dashboard = () => {
-  return <Sidebar />;
+  return (
+    <>
+      <Navbar />
+      <Filters />
+    </>
+  );
 };
 
 export default Dashboard;
