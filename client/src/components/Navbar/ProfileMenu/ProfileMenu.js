@@ -2,16 +2,26 @@ import React from "react";
 import useStyles from "./styles";
 import { Menu, MenuItem, Button } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../actions/auth";
+import { useNavigate } from "react-router-dom";
 
 const ProfileMenu = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
   };
 
   return (
@@ -44,12 +54,9 @@ const ProfileMenu = () => {
         }}
       >
         <MenuItem className={classes.menuItem} onClick={handleClose}>
-          Profile
-        </MenuItem>
-        <MenuItem className={classes.menuItem} onClick={handleClose}>
           My account
         </MenuItem>
-        <MenuItem className={classes.menuItem} onClick={handleClose}>
+        <MenuItem className={classes.menuItem} onClick={handleLogout}>
           Logout
         </MenuItem>
       </Menu>

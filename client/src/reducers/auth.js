@@ -1,6 +1,6 @@
 import { LOGOUT, LOGIN } from "../constants/actionTypes";
 
-const authReducer = (state = "", action) => {
+const authReducer = (state = localStorage.getItem("token"), action) => {
   switch (action.type) {
     case LOGOUT:
       localStorage.clear();
