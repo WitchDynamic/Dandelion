@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Select, MenuItem, FormControl } from "@material-ui/core";
+import { Select, MenuItem, FormControl, InputLabel } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./styles";
 
-const CustomSelect = ({ defaultVal, options }) => {
+const CustomSelect = ({ defaultVal, options, label }) => {
   const classes = useStyles();
   const [val, setVal] = useState(defaultVal);
 
   const handleChange = (event) => {
     setVal(event.target.value);
-    console.log(event.target.value);
   };
 
   const iconComponent = (props) => {
@@ -35,7 +34,9 @@ const CustomSelect = ({ defaultVal, options }) => {
 
   return (
     <FormControl>
+      <InputLabel className={classes.label}>{label}</InputLabel>
       <Select
+        label={label}
         disableUnderline
         classes={{ root: classes.select }}
         MenuProps={menuProps}

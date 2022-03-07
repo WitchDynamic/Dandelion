@@ -51,4 +51,12 @@ export default makeStyles(() => ({
       background: deepPurple[500],
     },
   },
+  label: {
+    color: "#D4C0FF",
+    fontSize: "20px",
+    top: "-4px",
+    "&.Mui-focused": {
+      color: "#B999FF",
+    },
+  },
 }));

@@ -7,4 +7,8 @@ export default makeStyles(() => ({
   grid: {
     marginTop: "5%",
   },
+  gridItem: {
+    display: "flex",
+    flexDirection: "row",
+  },
 }));
