@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../../actions/auth";
 import { useNavigate } from "react-router-dom";
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ name, profile }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -35,7 +35,7 @@ const ProfileMenu = () => {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Dropdown
+        {name}
       </Button>
       <Menu
         className={classes.menu}
@@ -53,8 +53,8 @@ const ProfileMenu = () => {
           horizontal: "left",
         }}
       >
-        <MenuItem className={classes.menuItem} onClick={handleClose}>
-          My account
+        <MenuItem className={classes.menuItem} component="a" href={profile}>
+          My Profile
         </MenuItem>
         <MenuItem className={classes.menuItem} onClick={handleLogout}>
           Logout

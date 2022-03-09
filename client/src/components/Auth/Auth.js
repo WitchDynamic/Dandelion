@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 const Auth = () => {
   const CLIENT_ID = "b4cf5825f1384e468d19ea6ae85cb236";
@@ -7,7 +6,7 @@ const Auth = () => {
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
-  const token = useSelector((state) => state.auth);
+  const token = localStorage.getItem("token");
 
   return (
     <>
