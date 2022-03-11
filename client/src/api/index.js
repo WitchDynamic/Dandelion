@@ -1,18 +1,22 @@
 import axios from "axios";
 
-export const getUser = async () => {
-  try {
-    const resp = await axios
-      .get("https://api.spotify.com/v1/me", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
-      .then((response) => {
-        localStorage.setItem("user", JSON.stringify(response.data));
-        return response.data;
-      });
-  } catch (err) {
-    console.log(err.response);
-  }
-};
+const API = axios.create({ baseURL: "http://localhost:5000" });
+
+// API.interceptors.request.use(() => {
+//   if (
+//     Math.floor(new Date().getTime() / 1000.0) >
+//     localStorage.getItem("expiration")
+//   ) {
+//     // accessToken has expired
+//     const resp = API.post(
+//       "/refresh_token",
+//       localStorage.getItem("refreshToken")
+//     );
+//     // const { data } = ^^^ ?
+//     console.log("resp in interceptor: " + resp);
+//     localStorage.setItem("accessToken", resp);
+//   }
+// });
+
+export const getUser = () =>
+  API.post("/get_user", { accessToken: localStorage.getItem("accessToken") });

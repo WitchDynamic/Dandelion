@@ -1,23 +1,23 @@
 import React from "react";
+import { Button, Link } from "@material-ui/core";
 
 const Auth = () => {
-  const CLIENT_ID = "b4cf5825f1384e468d19ea6ae85cb236";
-  const REDIRECT_URI = "http://localhost:3000/dashboard";
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-  const RESPONSE_TYPE = "token";
-
   const token = localStorage.getItem("token");
 
   return (
     <>
       {!token ? (
-        <a
-          href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
+        <Button
+          component="a"
+          href="http://localhost:5000/login"
+          style={{ color: "#FFF" }}
         >
-          Login to Spotify
-        </a>
+          Log in with Spotify
+        </Button>
       ) : (
-        <a href="http://localhost:3000/dashboard">Go to Dashboard</a>
+        <Button component={Link} href="/dashboard" style={{ color: "#FFF" }}>
+          Go to Dashboard
+        </Button>
       )}
     </>
   );
