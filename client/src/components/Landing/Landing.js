@@ -1,12 +1,22 @@
 import React from "react";
 import Auth from "../Auth/Auth";
+import useStyles from "./styles";
+import { Container, Typography } from "@material-ui/core";
 
 const Landing = () => {
+  const classes = useStyles();
   return (
-    <>
-      <h1 style={{ color: "white" }}>Landing Page</h1>
-      <Auth />
-    </>
+    <div className={classes.bg}>
+      <Container className={classes.container}>
+        <Typography variant="h1" className={classes.title}>
+          SpotiGraph
+        </Typography>
+        <Typography className={classes.description} variant="h4">
+          See your music in a graph & stuff... :]
+        </Typography>
+        <Auth />
+      </Container>
+    </div>
   );
 };
 

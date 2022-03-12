@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NotFound from "./components/NotFound/NotFound";
 import Landing from "./components/Landing/Landing";
+import "./App.css";
 
 const App = () => {
   return (
