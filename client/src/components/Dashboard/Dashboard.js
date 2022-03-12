@@ -5,11 +5,12 @@ import Navbar from "../Navbar/Navbar";
 import Network from "../Network/Network";
 import { Container } from "@material-ui/core";
 import { setToken } from "../../actions/auth";
-import { getUser } from "../../api/index";
+import { getUser, getArtists } from "../../api/index";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
+  const [artists, setArtists] = useState(null);
 
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
@@ -30,9 +31,17 @@ const Dashboard = () => {
       const { data } = await getUser();
       setUser(data);
     }
+
+    async function fetchArtists() {
+      const { items } = await getArtists();
+      setArtists(items);
+    }
+
     fetchUser();
+    fetchArtists();
   }, []);
 
+  console.log("artists: " + JSON.stringify(artists));
   console.log(user);
   return (
     <>
