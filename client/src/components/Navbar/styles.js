@@ -17,8 +17,10 @@ export default makeStyles(() => ({
     marginRight: "7px",
   },
   title: {
+    color: "#FFFFFF",
     flexGrow: 1,
     marginLeft: "15px",
+    textDecoration: "none",
   },
   menuIcon: {
     marginRight: 2,

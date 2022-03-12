@@ -1,5 +1,6 @@
 import React from "react";
 import { AppBar, Box, Toolbar, Avatar, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import ProfileMenu from "./ProfileMenu/ProfileMenu";
 import useStyles from "./styles";
 import Sidebar from "../Sidebar/Sidebar";
@@ -12,7 +13,12 @@ const Navbar = ({ name, profile, img }) => {
       <AppBar className={classes.appBar} position="static">
         <Toolbar className={classes.toolbar}>
           <Sidebar />
-          <Typography className={classes.title} variant="h5" component="div">
+          <Typography
+            component={Link}
+            to="/"
+            className={classes.title}
+            variant="h5"
+          >
             SpotiGraph
           </Typography>
           <Avatar className={classes.avatar} alt="spotify-img" src={img}>
