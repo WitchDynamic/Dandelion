@@ -39,7 +39,7 @@ const Dashboard = () => {
       <Navbar
         name={user?.display_name}
         profile={user?.external_urls.spotify}
-        img={user?.images[0].url}
+        img={user?.images[0]?.url}
       />
       <Container>
         <Filters />
