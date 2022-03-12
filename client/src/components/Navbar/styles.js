@@ -12,7 +12,7 @@ export default makeStyles(() => ({
     paddingLeft: "0px",
   },
   avatar: {
-    color: "#A84EC4",
+    color: "#FFF",
     backgroundColor: "#A84EC4",
     marginRight: "7px",
   },
