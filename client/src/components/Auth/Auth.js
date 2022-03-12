@@ -2,11 +2,11 @@ import React from "react";
 import { Button, Link } from "@material-ui/core";
 
 const Auth = () => {
-  const token = localStorage.getItem("token");
+  const accessToken = localStorage.getItem("accessToken");
 
   return (
     <>
-      {!token ? (
+      {!accessToken ? (
         <Button
           component="a"
           href="http://localhost:5000/login"

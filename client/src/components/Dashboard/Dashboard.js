@@ -1,27 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Filters from "../Filters/Filters";
 import Navbar from "../Navbar/Navbar";
 import Network from "../Network/Network";
 import { Container } from "@material-ui/core";
+import { setToken } from "../../actions/auth";
+import { getUser } from "../../api/index";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.hash);
-    const accessToken = urlParams.get("#access_token");
-    const refreshToken = urlParams.get("refresh_token");
-    const expiresIn = urlParams.get("expires_in");
-    //convert to epoch
-    const expiration = Math.floor(new Date().getTime() / 1000.0) + expiresIn;
-    //save in local storage
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
-    localStorage.setItem("expiration", expiration);
+    if (!localStorage.getItem("accessToken")) {
+      const urlParams = new URLSearchParams(window.location.hash);
+      const accessToken = urlParams.get("#access_token");
+      const refreshToken = urlParams.get("refresh_token");
+      const expiresIn = urlParams.get("expires_in");
+      //convert to epoch
+      const expiration = Math.floor(new Date().getTime() / 1000.0) + expiresIn;
+      //save in local storage
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("expiration", expiration);
+      dispatch(setToken(accessToken));
+    }
+
+    async function fetchUser() {
+      const { data } = await getUser();
+      setUser(data);
+    }
+    fetchUser();
   }, []);
 
-  //console.log(user.images);
+  console.log(user);
   return (
     <>
-      <Navbar />
+      <Navbar
+        name={user?.display_name}
+        profile={user?.external_urls.spotify}
+        img={user?.images[0].url}
+      />
       <Container>
         <Filters />
         <Network />

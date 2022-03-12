@@ -1,23 +1,13 @@
-import { LOGOUT, LOGIN } from "../constants/actionTypes";
+import { LOGOUT, SET_TOKEN } from "../constants/actionTypes";
 
-const authReducer = (
-  state = {
-    token: localStorage.getItem("token"),
-    user: localStorage.getItem("user")
-      ? JSON.parse(localStorage.getItem("user"))
-      : null,
-  },
-  action
-) => {
+const authReducer = (state = localStorage.getItem("accessToken"), action) => {
   switch (action.type) {
     case LOGOUT:
       localStorage.clear();
-      return { ...state, token: null, user: null };
-    case LOGIN:
-      const { token, user } = action.payload;
+      return null;
+    case SET_TOKEN:
       window.location.hash = "";
-      window.localStorage.setItem("user", JSON.stringify(user));
-      return { ...state, token: token, user: user };
+      return action.payload;
     default:
       return state;
   }

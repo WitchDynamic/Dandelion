@@ -3,11 +3,9 @@ import { AppBar, Box, Toolbar, Avatar, Typography } from "@material-ui/core";
 import ProfileMenu from "./ProfileMenu/ProfileMenu";
 import useStyles from "./styles";
 import Sidebar from "../Sidebar/Sidebar";
-import { useSelector } from "react-redux";
 
-const Navbar = () => {
+const Navbar = ({ name, profile, img }) => {
   const classes = useStyles();
-  const user = useSelector((state) => state.auth.user);
 
   return (
     <Box>
@@ -17,17 +15,10 @@ const Navbar = () => {
           <Typography className={classes.title} variant="h5" component="div">
             SpotiGraph
           </Typography>
-          <Avatar
-            className={classes.avatar}
-            alt="spotify-img"
-            src={user?.images[0].url}
-          >
-            {user?.display_name.charAt(0)}
+          <Avatar className={classes.avatar} alt="spotify-img" src={img}>
+            {name?.charAt(0)}
           </Avatar>
-          <ProfileMenu
-            name={user?.display_name}
-            profile={user?.external_urls.spotify}
-          />
+          <ProfileMenu name={name} profile={profile} />
         </Toolbar>
       </AppBar>
     </Box>

@@ -1,8 +1,8 @@
-import { LOGOUT, LOGIN } from "../constants/actionTypes";
+import { LOGOUT, SET_TOKEN } from "../constants/actionTypes";
 
-export const login = (token, user) => (dispatch) => {
+export const setToken = (token) => (dispatch) => {
   try {
-    dispatch({ type: LOGIN, payload: { token, user } });
+    dispatch({ type: SET_TOKEN, payload: token });
   } catch (error) {
     console.log(error);
   }
