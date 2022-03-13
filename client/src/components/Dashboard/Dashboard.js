@@ -5,12 +5,15 @@ import Navbar from "../Navbar/Navbar";
 import Network from "../Network/Network";
 import { Container } from "@material-ui/core";
 import { setToken } from "../../actions/auth";
-import { getUser, getArtists } from "../../api/index";
+import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
+import constructNetwork from "../Network/constructNetwork";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
-  const [artists, setArtists] = useState(null);
+  const [topArtists, setTopArtists] = useState([]);
+  const [relatedArtists, setRelatedArtists] = useState({});
+  const [artistNodes, setArtistNodes] = useState([]);
 
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
@@ -27,22 +30,18 @@ const Dashboard = () => {
       dispatch(setToken(accessToken));
     }
 
-    async function fetchUser() {
-      const { data } = await getUser();
-      setUser(data);
-    }
-
-    async function fetchArtists() {
-      const { items } = await getArtists();
-      setArtists(items);
-    }
-
-    fetchUser();
-    fetchArtists();
+    getUser().then((res) => {
+      setUser(res);
+    });
+    getArtists().then((artists) => {
+      setTopArtists(artists.data.items);
+    });
   }, []);
 
-  console.log("artists: " + JSON.stringify(artists));
-  console.log(user);
+  if (topArtists.length > 0) {
+    console.log("artists: " + JSON.stringify(topArtists));
+  }
+
   return (
     <>
       <Navbar
@@ -52,7 +51,7 @@ const Dashboard = () => {
       />
       <Container>
         <Filters />
-        <Network />
+        <Network nodes={artistNodes} />
       </Container>
     </>
   );
