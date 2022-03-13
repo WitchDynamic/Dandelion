@@ -1,12 +1,12 @@
 import { logout } from "../../actions/auth";
 
 const constructNetwork = (topArtists, relatedArtists) => {
-  console.log(
-    "in construct newtork (relatedArtists): " + JSON.stringify(relatedArtists)
-  );
-  console.log(
-    "in construct network (topArtists): " + JSON.stringify(topArtists)
-  );
+  // console.log(
+  //   "in construct newtork (relatedArtists): " + JSON.stringify(relatedArtists)
+  // );
+  // console.log(
+  //   "in construct network (topArtists): " + JSON.stringify(topArtists)
+  // );
   const artistNodes = [];
   const artistEdges = [];
 
@@ -25,7 +25,7 @@ const constructNetwork = (topArtists, relatedArtists) => {
       let skip = false;
       artistNodes.forEach((node) => {
         if (node.id == artist.id) {
-          console.log("Found a dupe! " + node.label + " and " + artist.name);
+          // console.log("Found a dupe! " + node.label + " and " + artist.name);
           skip = true;
           let index = artistNodes.findIndex((artist) => artist.id == node.id);
           artistNodes[index].size += 5;

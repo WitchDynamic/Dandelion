@@ -8,6 +8,7 @@ import constructNetwork from "./constructNetwork";
 
 const Network = ({ topArtists, relatedArtists }) => {
   const [graph, setGraph] = useState({ nodes: [], edges: [] });
+  const [network, setNetwork] = useState({});
   useEffect(() => {
     setGraph(constructNetwork(topArtists, relatedArtists));
   }, [relatedArtists]);
@@ -44,14 +45,41 @@ const Network = ({ topArtists, relatedArtists }) => {
           damping: 0.66,
           overlap: 1,
         },
+        stabilization: {
+          enabled: true,
+          iterations: 2000,
+          updateInterval: 2,
+        },
       },
       configure: true,
     },
   };
 
   const events = {
-    select: function (event) {
-      var { nodes, edges } = event;
+    select: ({ nodes, edges }) => {
+      console.log("Selected nodes:");
+      console.log(nodes);
+      console.log("Selected edges:");
+      console.log(edges);
+      alert("Selected node: " + nodes);
+    },
+    stabilized: () => {
+      if (network) {
+        // Network will be set using getNetwork event from the Graph component
+        // network.setOptions({ physics: false }); // Disable physics after stabilization
+        network.fit();
+      }
+    },
+    startStabilizing: () => {
+      console.log("Started stabilizing");
+    },
+    stabilizationProgress: (iterations, total) => {
+      if (network) {
+        console.log("Network is stabilizing! " + iterations + " " + total);
+      }
+    },
+    stabilizationIterationsDone: () => {
+      console.log("Network has stabilized!");
     },
   };
 
@@ -64,6 +92,7 @@ const Network = ({ topArtists, relatedArtists }) => {
       events={events}
       getNetwork={(network) => {
         //  if you want access to vis.js network api you can set the state in a parent component using this property
+        setNetwork(network);
       }}
     />
   );
