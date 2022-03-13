@@ -15,7 +15,10 @@ const Dashboard = () => {
   const [topArtists, setTopArtists] = useState([]);
   const [relatedArtists, setRelatedArtists] = useState({});
   const [artistNodes, setArtistNodes] = useState({});
+  const [artistLimit, setArtistLimit] = useState(10);
+  const [timeRange, setTimeRange] = useState("medium_term");
   const classes = useStyles();
+
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
       const urlParams = new URLSearchParams(window.location.hash);
@@ -29,11 +32,11 @@ const Dashboard = () => {
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("expiration", expiration);
       //dispatch(setToken(accessToken));
+      getUser().then((res) => {
+        //console.log(res);
+        setUser(res);
+      });
     }
-    getUser().then((res) => {
-      //console.log(res);
-      setUser(res);
-    });
 
     const relatedArtistHelper = async (artistId) => {
       const {
@@ -55,13 +58,15 @@ const Dashboard = () => {
     const fetchTopArtists = async () => {
       const {
         data: { items },
-      } = await getArtists();
+      } = await getArtists(artistLimit, timeRange);
       setTopArtists(items);
       //makes sure items is defined before calling fetchRelatedArtists
       fetchRelatedArtists(items);
     };
     fetchTopArtists();
-  }, []);
+    console.log("Current time range: " + timeRange);
+    console.log("Current artist range: " + artistLimit);
+  }, [artistLimit, timeRange]);
 
   return (
     <>
@@ -71,7 +76,12 @@ const Dashboard = () => {
         img={user?.images[0]?.url}
       />
       <Container>
-        <Filters />
+        <Filters
+          artistLimit={artistLimit}
+          setArtistLimit={setArtistLimit}
+          timeRange={timeRange}
+          setTimeRange={setTimeRange}
+        />
       </Container>
       <div className={classes.graphContainer}>
         <Network topArtists={topArtists} relatedArtists={relatedArtists} />
