@@ -1,26 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Graph from "react-graph-vis";
 import { Container } from "@material-ui/core";
 import { mergeClasses } from "@material-ui/styles";
 import useStyles from "./styles";
+import constructNetwork from "./constructNetwork";
 //import "./styles.css";
 
-const Network = ({ artists }) => {
+const Network = ({ topArtists, relatedArtists }) => {
+  const [graph, setGraph] = useState({ nodes: [], edges: [] });
+  useEffect(() => {
+    setGraph(constructNetwork(topArtists, relatedArtists));
+  }, [relatedArtists]);
+
   const classes = useStyles();
-  const graph = {
-    nodes: [
-      { id: 1, label: "Node 1" },
-      { id: 2, label: "Node 2" },
-      { id: 3, label: "Node 3" },
-      { id: 4, label: "Node 4" },
-      { id: 5, label: "Node 5" },
-    ],
-    edges: [
-      { from: 1, to: 2 },
-      { from: 1, to: 3 },
-      { from: 2, to: 4 },
-      { from: 2, to: 5 },
-    ],
+  const data = {
+    nodes: graph.nodes,
+    edges: graph.edges,
   };
 
   const options = {
@@ -30,7 +25,7 @@ const Network = ({ artists }) => {
     edges: {
       color: "#893BA2",
     },
-    height: "500px",
+    height: "1200px",
     nodes: {
       color: "#A84EC4",
       shape: "dot",
@@ -48,9 +43,9 @@ const Network = ({ artists }) => {
 
   return (
     <Graph
-      className={classes.graph}
+      className={classes.data}
       style={{ height: "100px" }}
-      graph={graph}
+      graph={data}
       options={options}
       events={events}
       getNetwork={(network) => {

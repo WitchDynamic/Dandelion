@@ -7,14 +7,15 @@ import { Container } from "@material-ui/core";
 import { setToken } from "../../actions/auth";
 import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
 import constructNetwork from "../Network/constructNetwork";
+import useStyles from "./styles";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
   const [topArtists, setTopArtists] = useState([]);
   const [relatedArtists, setRelatedArtists] = useState({});
-  const [artistNodes, setArtistNodes] = useState([]);
-
+  const [artistNodes, setArtistNodes] = useState({});
+  const classes = useStyles();
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
       const urlParams = new URLSearchParams(window.location.hash);
@@ -48,6 +49,7 @@ const Dashboard = () => {
         nodes = { ...nodes, [artistList[artist].id]: relatedArtist };
       }
       console.log(nodes);
+      setRelatedArtists(nodes);
     };
 
     const fetchTopArtists = async () => {
@@ -70,8 +72,10 @@ const Dashboard = () => {
       />
       <Container>
         <Filters />
-        <Network artists={topArtists} />
       </Container>
+      <div className={classes.graphContainer}>
+        <Network topArtists={topArtists} relatedArtists={relatedArtists} />
+      </div>
     </>
   );
 };

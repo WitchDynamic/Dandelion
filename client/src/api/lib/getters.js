@@ -3,7 +3,7 @@ import { spotiClient } from "../spotiClient";
 export const getArtists = async () => {
   const data = await spotiClient
     .get("/me/top/artists", {
-      params: { limit: 3, offset: 0, time_range: "long_term" },
+      params: { limit: 5, offset: 0, time_range: "long_term" },
     })
     .catch((err) => {
       console.log(err);
