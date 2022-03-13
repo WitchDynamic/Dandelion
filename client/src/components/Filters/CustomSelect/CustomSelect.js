@@ -3,12 +3,12 @@ import { Select, MenuItem, FormControl, InputLabel } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./styles";
 
-const CustomSelect = ({ defaultVal, options, label }) => {
+const CustomSelect = ({ value, options, label, setValue, isNum }) => {
   const classes = useStyles();
-  const [val, setVal] = useState(defaultVal);
 
   const handleChange = (event) => {
-    setVal(event.target.value);
+    //setVal(event.target.value);
+    setValue(event.target.value);
   };
 
   const iconComponent = (props) => {
@@ -41,11 +41,14 @@ const CustomSelect = ({ defaultVal, options, label }) => {
         classes={{ root: classes.select }}
         MenuProps={menuProps}
         IconComponent={iconComponent}
-        value={val}
+        value={isNum ? value : value.toLowerCase().replace(/ /g, "_")}
         onChange={handleChange}
       >
         {options.map((option) => (
-          <MenuItem key={option} value={option}>
+          <MenuItem
+            key={option}
+            value={isNum ? option : option.toLowerCase().replace(/ /g, "_")}
+          >
             {option}
           </MenuItem>
         ))}

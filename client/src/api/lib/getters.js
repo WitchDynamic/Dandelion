@@ -1,9 +1,9 @@
 import { spotiClient } from "../spotiClient";
 
-export const getArtists = async () => {
+export const getArtists = async (artistLimit, timeRange) => {
   const data = await spotiClient
     .get("/me/top/artists", {
-      params: { limit: 5, offset: 0, time_range: "long_term" },
+      params: { limit: artistLimit, offset: 0, time_range: timeRange },
     })
     .catch((err) => {
       console.log(err);

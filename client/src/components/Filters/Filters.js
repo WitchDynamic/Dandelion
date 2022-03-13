@@ -4,11 +4,11 @@ import useStyles from "./styles";
 import CustomSelect from "./CustomSelect/CustomSelect";
 import TooltipBtn from "./TooltipBtn/TooltipBtn";
 
-const Filters = () => {
+const Filters = ({ artistLimit, setArtistLimit, timeRange, setTimeRange }) => {
   const classes = useStyles();
 
-  const timeRange = ["Short Term", "Medium Term", "Long Term"];
-  const artistRange = [10, 20, 30, 40, 50];
+  const timeRangeOptions = ["Short Term", "Medium Term", "Long Term"];
+  const artistRangeOptions = [10, 20, 30, 40, 50];
 
   return (
     <Grid
@@ -20,17 +20,21 @@ const Filters = () => {
     >
       <Grid className={classes.gridItem}>
         <CustomSelect
-          defaultVal={timeRange[1]}
-          options={timeRange}
+          value={timeRange}
+          options={timeRangeOptions}
           label="Time Range"
+          setValue={setTimeRange}
+          isNum={false}
         />
         <TooltipBtn />
       </Grid>
       <Grid className={classes.gridItem}>
         <CustomSelect
-          defaultVal={artistRange[1]}
-          options={artistRange}
+          value={artistLimit}
+          options={artistRangeOptions}
           label="Artist Range"
+          setValue={setArtistLimit}
+          isNum={true}
         />
         <TooltipBtn />
       </Grid>
