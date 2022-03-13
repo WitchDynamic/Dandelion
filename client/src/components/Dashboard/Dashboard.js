@@ -27,20 +27,39 @@ const Dashboard = () => {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("expiration", expiration);
-      dispatch(setToken(accessToken));
+      //dispatch(setToken(accessToken));
     }
-
     getUser().then((res) => {
+      //console.log(res);
       setUser(res);
     });
-    getArtists().then((artists) => {
-      setTopArtists(artists.data.items);
-    });
-  }, []);
 
-  if (topArtists.length > 0) {
-    console.log("artists: " + JSON.stringify(topArtists));
-  }
+    const relatedArtistHelper = async (artistId) => {
+      const {
+        data: { artists },
+      } = await getRelatedArtists(artistId);
+      return artists;
+    };
+
+    const fetchRelatedArtists = async (artistList) => {
+      let nodes = [];
+      for (let artist = 0; artist < artistList.length; artist++) {
+        const relatedArtist = await relatedArtistHelper(artistList[artist].id);
+        nodes = [...nodes, relatedArtist];
+      }
+      console.log(nodes);
+    };
+
+    const fetchTopArtists = async () => {
+      const {
+        data: { items },
+      } = await getArtists();
+      setTopArtists(items);
+      //makes sure items is defined before calling fetchRelatedArtists
+      fetchRelatedArtists(items);
+    };
+    fetchTopArtists();
+  }, []);
 
   return (
     <>
@@ -51,7 +70,7 @@ const Dashboard = () => {
       />
       <Container>
         <Filters />
-        <Network nodes={artistNodes} />
+        <Network artists={topArtists} />
       </Container>
     </>
   );
