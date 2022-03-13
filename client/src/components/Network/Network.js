@@ -10,7 +10,6 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
   useEffect(() => {
     setGraph(constructNetwork(topArtists, relatedArtists));
   }, [relatedArtists]);
-
   const classes = useStyles();
   const data = {
     nodes: graph.nodes,
@@ -20,6 +19,7 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
   const options = {
     layout: {
       hierarchical: false,
+      improvedLayout: false,
     },
     edges: {
       color: "#893BA2",
@@ -32,52 +32,54 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
         color: "white",
       },
     },
-    options: {
-      physics: {
-        enabled: true,
-        barnesHut: {
-          gravity: -17950,
-          centralGravity: 1,
-          springLength: 220,
-          springStrength: 0.14,
-          damping: 0.66,
-          overlap: 1,
-        },
-        stabilization: {
-          enabled: true,
-          iterations: 2000,
-          updateInterval: 2,
-        },
+    physics: {
+      enabled: true,
+      stabilization: { iterations: 750, updateInterval: 50 },
+      barnesHut: {
+        gravitationalConstant: -15000,
+        centralGravity: 0.04,
+        springLength: 200,
+        springConstant: 0.02,
+        damping: 0.66,
+        avoidOverlap: 1,
       },
-      configure: true,
+      forceAtlas2Based: {
+        theta: 0.5,
+        gravitationalConstant: -100,
+        centralGravity: 0.012,
+        springConstant: 0.08,
+        springLength: 100,
+        damping: 0.4,
+        avoidOverlap: 1,
+      },
+      solver: "forceAtlas2Based",
     },
+    layout: { hierarchical: false },
+    autoResize: false,
   };
-
+  // setIsLoading(false);
   const events = {
     select: ({ nodes, edges }) => {
       console.log("Selected nodes:");
       console.log(nodes);
       console.log("Selected edges:");
       console.log(edges);
-      alert("Selected node: " + nodes);
     },
-    stabilized: () => {
-      if (network) {
-        // Network will be set using getNetwork event from the Graph component
-        // network.setOptions({ physics: false }); // Disable physics after stabilization
-        network.fit();
-      }
+    stabilized: function (event) {
+      var { iterations } = event;
+      console.log("iterations: " + iterations);
+      // Here you should make the graph visible
     },
     startStabilizing: () => {
       console.log("Started stabilizing");
     },
-    stabilizationProgress: (iterations, total) => {
-      if (network) {
-        console.log("Network is stabilizing! " + iterations + " " + total);
-      }
+    stabilizationProgress: ({ iterations, total }) => {
+      console.log("Network is stabilizing! " + JSON.stringify(iterations));
+      document.getElementById("graph-spinner").style.opacity = 1;
     },
     stabilizationIterationsDone: () => {
       console.log("Network has stabilized!");
+      document.getElementById("graph-spinner").style.opacity = 0;
     },
   };
 

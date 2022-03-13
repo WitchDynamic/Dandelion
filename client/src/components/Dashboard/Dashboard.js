@@ -8,6 +8,7 @@ import { setToken } from "../../actions/auth";
 import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
 import constructNetwork from "../Network/constructNetwork";
 import useStyles from "./styles";
+import "./styles.css";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Dashboard = () => {
   const [topArtists, setTopArtists] = useState([]);
   const [relatedArtists, setRelatedArtists] = useState({});
   const [artistNodes, setArtistNodes] = useState({});
-  const [artistLimit, setArtistLimit] = useState(10);
+  const [artistLimit, setArtistLimit] = useState(20);
   const [timeRange, setTimeRange] = useState("medium_term");
   const [isLoading, setIsLoading] = useState(true);
   const classes = useStyles();
@@ -90,6 +91,7 @@ const Dashboard = () => {
           relatedArtists={relatedArtists}
           isLoading={isLoading}
         />
+        <div className="loader" id="graph-spinner"></div>
       </div>
     </>
   );
