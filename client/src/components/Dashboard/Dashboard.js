@@ -17,6 +17,7 @@ const Dashboard = () => {
   const [artistNodes, setArtistNodes] = useState({});
   const [artistLimit, setArtistLimit] = useState(10);
   const [timeRange, setTimeRange] = useState("medium_term");
+  const [isLoading, setIsLoading] = useState(true);
   const classes = useStyles();
 
   useEffect(() => {
@@ -32,11 +33,11 @@ const Dashboard = () => {
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("expiration", expiration);
       //dispatch(setToken(accessToken));
-      getUser().then((res) => {
-        //console.log(res);
-        setUser(res);
-      });
     }
+    getUser().then((res) => {
+      //console.log(res);
+      setUser(res);
+    });
 
     const relatedArtistHelper = async (artistId) => {
       const {
@@ -53,9 +54,11 @@ const Dashboard = () => {
       }
       console.log(nodes);
       setRelatedArtists(nodes);
+      setIsLoading(false);
     };
 
     const fetchTopArtists = async () => {
+      setIsLoading(true);
       const {
         data: { items },
       } = await getArtists(artistLimit, timeRange);
@@ -64,8 +67,6 @@ const Dashboard = () => {
       fetchRelatedArtists(items);
     };
     fetchTopArtists();
-    console.log("Current time range: " + timeRange);
-    console.log("Current artist range: " + artistLimit);
   }, [artistLimit, timeRange]);
 
   return (
@@ -84,7 +85,11 @@ const Dashboard = () => {
         />
       </Container>
       <div className={classes.graphContainer}>
-        <Network topArtists={topArtists} relatedArtists={relatedArtists} />
+        <Network
+          topArtists={topArtists}
+          relatedArtists={relatedArtists}
+          isLoading={isLoading}
+        />
       </div>
     </>
   );

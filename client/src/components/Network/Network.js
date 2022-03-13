@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Graph from "react-graph-vis";
-import { Container } from "@material-ui/core";
-import { mergeClasses } from "@material-ui/styles";
+import Skeleton from "@material-ui/lab/Skeleton";
 import useStyles from "./styles";
 import constructNetwork from "./constructNetwork";
-//import "./styles.css";
 
-const Network = ({ topArtists, relatedArtists }) => {
+const Network = ({ topArtists, relatedArtists, isLoading }) => {
   const [graph, setGraph] = useState({ nodes: [], edges: [] });
   useEffect(() => {
     setGraph(constructNetwork(topArtists, relatedArtists));
@@ -55,7 +53,9 @@ const Network = ({ topArtists, relatedArtists }) => {
     },
   };
 
-  return (
+  return isLoading ? (
+    <Skeleton animation="wave" variant="circular" width={1000} height={1000} />
+  ) : (
     <Graph
       className={classes.data}
       style={{ height: "100px" }}
