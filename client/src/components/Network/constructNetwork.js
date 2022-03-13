@@ -25,7 +25,6 @@ const constructNetwork = (topArtists, relatedArtists) => {
       let skip = false;
       artistNodes.forEach((node) => {
         if (node.id == artist.id) {
-          //console.log("Found a dupe! " + node.label + " and " + artist.name);
           skip = true;
           let index = artistNodes.findIndex((artist) => artist.id == node.id);
           artistNodes[index].size += 5;
