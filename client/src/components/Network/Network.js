@@ -33,6 +33,20 @@ const Network = ({ topArtists, relatedArtists }) => {
         color: "white",
       },
     },
+    options: {
+      physics: {
+        enabled: true,
+        barnesHut: {
+          gravity: -17950,
+          centralGravity: 1,
+          springLength: 220,
+          springStrength: 0.14,
+          damping: 0.66,
+          overlap: 1,
+        },
+      },
+      configure: true,
+    },
   };
 
   const events = {
