@@ -20,3 +20,24 @@ const API = axios.create({ baseURL: "http://localhost:5000" });
 
 export const getUser = () =>
   API.post("/get_user", { accessToken: localStorage.getItem("accessToken") });
+
+export const getArtists = async (e) => {
+  console.log("In getArtists, here is the token");
+  // e.preventDefault();
+  console.log(localStorage.getItem("accessToken"));
+  const { data } = await axios.get(
+    "https://api.spotify.com/v1/me/top/artists",
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
+      // params: {
+      //   limit: 20,
+      //   offset: 0,
+      //   time_range: "long_term",
+      // },
+    }
+  );
+  console.log("returning " + JSON.stringify(data));
+  return data;
+};
