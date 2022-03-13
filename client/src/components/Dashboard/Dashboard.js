@@ -42,10 +42,10 @@ const Dashboard = () => {
     };
 
     const fetchRelatedArtists = async (artistList) => {
-      let nodes = [];
+      let nodes = {};
       for (let artist = 0; artist < artistList.length; artist++) {
         const relatedArtist = await relatedArtistHelper(artistList[artist].id);
-        nodes = [...nodes, relatedArtist];
+        nodes = { ...nodes, [artistList[artist].id]: relatedArtist };
       }
       console.log(nodes);
     };
