@@ -29,7 +29,7 @@ export default makeStyles(() => ({
   landingContent: {
     //backgroundColor: "rgb(0, 0, 0, 0.5)",
     marginTop: "15%",
-    display: "flex",
+    display: "flex !important",
     flexDirection: "column",
     alignItems: "center",
   },
