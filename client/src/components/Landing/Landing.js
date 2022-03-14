@@ -7,7 +7,7 @@ const Landing = () => {
   const classes = useStyles();
   return (
     <div className={classes.bg}>
-      <Container className={classes.container}>
+      <Container className={classes.landingContent}>
         <Typography variant="h1" className={classes.title}>
           SpotiGraph
         </Typography>
