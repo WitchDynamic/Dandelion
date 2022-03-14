@@ -27,7 +27,7 @@ const Navbar = ({
               component={Link}
               to="/"
               className={classes.title}
-              variant="h5"
+              variant="h4"
             >
               SpotiGraph
             </Typography>

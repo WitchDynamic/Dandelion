@@ -16,13 +16,15 @@ export default makeStyles(() => ({
     color: "#FFF",
     backgroundColor: "#A84EC4",
     marginRight: "7px",
+    height: "47px",
+    width: "47px",
   },
   titleContainer: {
     flexGrow: 1,
   },
   title: {
     color: "#FFFFFF",
-    marginLeft: "15px",
+    marginLeft: "10px",
     textDecoration: "none",
   },
   menuIcon: {
