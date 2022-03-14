@@ -17,7 +17,8 @@ export default makeStyles(() => ({
       backgroundColor: "transparent",
     },
   },
-  title: {
+
+  sidebarTitle: {
     textAlign: "center",
     marginTop: "20px",
     color: "#FFFFFF",
@@ -47,5 +48,20 @@ export default makeStyles(() => ({
   menuIcon: {
     color: "#A84EC4",
     fontSize: "40px",
+  },
+
+  sidebarBox: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    maxWidth: "250px",
+  },
+  sidebarBodyDiv: {
+    marginTop: "70px",
+  },
+  sidebarBodyText: {
+    color: "#FFFFFF",
+    textAlign: "center",
+    marginBottom: "20px",
   },
 }));

@@ -30,14 +30,23 @@ const Sidebar = () => {
 
   const list = () => (
     <Box
+      className={classes.sidebarBox}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <Typography className={classes.title} variant="h6">
+      <Typography className={classes.sidebarTitle} variant="h6">
         Friends
       </Typography>
-      <List className={classes.listMenu}>
+      <div className={classes.sidebarBodyDiv}>
+        <Typography className={classes.sidebarBodyText} variant="body1">
+          Hello there!
+        </Typography>
+        <Typography className={classes.sidebarBodyText} variant="body1">
+          This feature hasn't been implemented yet. Check back soon! :)
+        </Typography>
+      </div>
+      {/* <List className={classes.listMenu}>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem className={classes.listItem} button key={text}>
             <ListItemIcon className={classes.menuItem}>
@@ -46,7 +55,7 @@ const Sidebar = () => {
             <ListItemText className={classes.menuItem} primary={text} />
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Box>
   );
 
