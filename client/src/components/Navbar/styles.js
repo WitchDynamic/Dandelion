@@ -5,8 +5,9 @@ const purple = "#5B5A99";
 export default makeStyles(() => ({
   appBar: {
     borderRadius: 5,
-    backgroundColor: "transparent !important",
-    boxShadow: "none",
+    //backgroundColor: "transparent !important",
+    backgroundColor: "rgba(0, 0, 0, 0.2)",
+    //boxShadow: "none",
   },
   toolbar: {
     paddingLeft: "0px",
