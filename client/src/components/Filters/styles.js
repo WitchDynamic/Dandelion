@@ -5,7 +5,7 @@ export default makeStyles(() => ({
     color: "#FFF",
   },
   grid: {
-    marginTop: "5%",
+    marginTop: "0.7%",
   },
   gridItem: {
     display: "flex",

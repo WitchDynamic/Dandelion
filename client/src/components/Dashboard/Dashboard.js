@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import Filters from "../Filters/Filters";
 import Navbar from "../Navbar/Navbar";
 import Network from "../Network/Network";
-import { Container } from "@material-ui/core";
-import { setToken } from "../../actions/auth";
 import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
-import constructNetwork from "../Network/constructNetwork";
 import useStyles from "./styles";
 import "./styles.css";
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
   const [user, setUser] = useState(null);
   const [topArtists, setTopArtists] = useState([]);
   const [relatedArtists, setRelatedArtists] = useState({});
@@ -32,10 +26,8 @@ const Dashboard = () => {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("expiration", expiration);
-      //dispatch(setToken(accessToken));
     }
     getUser().then((res) => {
-      //console.log(res);
       setUser(res);
     });
 
@@ -75,16 +67,11 @@ const Dashboard = () => {
         name={user?.display_name}
         profile={user?.external_urls.spotify}
         img={user?.images[0]?.url}
+        artistLimit={artistLimit}
+        setArtistLimit={setArtistLimit}
+        timeRange={timeRange}
+        setTimeRange={setTimeRange}
       />
-      <Container>
-        <Filters
-          artistLimit={artistLimit}
-          setArtistLimit={setArtistLimit}
-          timeRange={timeRange}
-          setTimeRange={setTimeRange}
-        />
-      </Container>
-
       <div className={classes.fullscreen}>
         <Network
           topArtists={topArtists}
