@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Link } from "@material-ui/core";
 import useStyles from "./styles";
+import { useDispatch } from "react-redux";
+import { logout } from "../../actions/auth";
 
 const Auth = () => {
   const classes = useStyles();
-  const accessToken = localStorage.getItem("accessToken");
+  const dispatch = useDispatch();
+  const [accessToken, setAccessToken] = useState(
+    localStorage.getItem("accessToken")
+  );
+
+  const checkTokenExpiration = () => {
+    if (
+      Math.floor(new Date().getTime() / 1000.0) >
+      localStorage.getItem("expiration")
+    ) {
+      console.log("Token was expired");
+      dispatch(logout());
+      setAccessToken(null);
+    }
+  };
+
+  if (accessToken) checkTokenExpiration();
 
   return (
     <>
