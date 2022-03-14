@@ -8,7 +8,8 @@ export default makeStyles(() => ({
     "& .MuiPaper-root": {
       background: "linear-gradient(180deg, #1c193e, rgba(27, 25, 66), #17163B)",
       width: "12%",
-      minWidth: "fit-content",
+      minWidth: "250px",
+      maxWidth: "250px",
     },
     "& .MuiListItem-gutters": {
       paddingLeft: "30px",
