@@ -16,9 +16,11 @@ export default makeStyles(() => ({
     backgroundColor: "#A84EC4",
     marginRight: "7px",
   },
+  titleContainer: {
+    flexGrow: 1,
+  },
   title: {
     color: "#FFFFFF",
-    flexGrow: 1,
     marginLeft: "15px",
     textDecoration: "none",
   },
