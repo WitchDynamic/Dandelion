@@ -19,7 +19,7 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
   const options = {
     layout: {
       hierarchical: false,
-      //improvedLayout: false,
+      improvedLayout: false,
     },
     edges: {
       width: 0.15,
