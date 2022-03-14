@@ -19,12 +19,18 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
   const options = {
     layout: {
       hierarchical: false,
-      improvedLayout: false,
+      //improvedLayout: false,
     },
     edges: {
-      color: "#893BA2",
+      width: 0.15,
+      color: { inherit: "from" },
+      smooth: {
+        type: "continuous",
+      },
     },
-    height: "1200px",
+    // height: "100%",
+    // width: "100%",
+    autoResize: true,
     nodes: {
       color: "#A84EC4",
       shape: "dot",
@@ -35,6 +41,14 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
     physics: {
       enabled: true,
       stabilization: { iterations: 750, updateInterval: 50 },
+      repulsion: {
+        centralGravity: 0.0,
+        springLength: 50,
+        springConstant: 0.01,
+        nodeDistance: 200,
+        damping: 0.09,
+      },
+      solver: "repulsion",
       barnesHut: {
         gravitationalConstant: -15000,
         centralGravity: 0.04,
@@ -52,10 +66,7 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
         damping: 0.4,
         avoidOverlap: 1,
       },
-      solver: "forceAtlas2Based",
     },
-    layout: { hierarchical: false },
-    autoResize: false,
   };
   // setIsLoading(false);
   const events = {
@@ -84,11 +95,14 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
   };
 
   return isLoading ? (
-    <Skeleton animation="wave" variant="circular" width={1000} height={1000} />
+    <Skeleton
+      className={classes.skelly}
+      animation="wave"
+      width="100vw"
+      height="100vh"
+    />
   ) : (
     <Graph
-      className={classes.data}
-      style={{ height: "100px" }}
       graph={data}
       options={options}
       events={events}

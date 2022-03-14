@@ -15,7 +15,6 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [topArtists, setTopArtists] = useState([]);
   const [relatedArtists, setRelatedArtists] = useState({});
-  const [artistNodes, setArtistNodes] = useState({});
   const [artistLimit, setArtistLimit] = useState(20);
   const [timeRange, setTimeRange] = useState("medium_term");
   const [isLoading, setIsLoading] = useState(true);
@@ -85,7 +84,8 @@ const Dashboard = () => {
           setTimeRange={setTimeRange}
         />
       </Container>
-      <div className={classes.graphContainer}>
+
+      <div className={classes.fullscreen}>
         <Network
           topArtists={topArtists}
           relatedArtists={relatedArtists}

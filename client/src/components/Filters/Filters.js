@@ -8,7 +8,7 @@ const Filters = ({ artistLimit, setArtistLimit, timeRange, setTimeRange }) => {
   const classes = useStyles();
 
   const timeRangeOptions = ["Short Term", "Medium Term", "Long Term"];
-  const artistRangeOptions = [10, 20, 30, 40, 50];
+  const artistRangeOptions = [1, 5, 10, 20, 30, 40, 50];
 
   return (
     <Grid
