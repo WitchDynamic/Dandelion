@@ -14,6 +14,7 @@ export const getArtists = async (artistLimit, timeRange) => {
 export const getUser = async () => {
   //console.log("in getUser accesstoken: " + localStorage.getItem("accessToken"));
   const { data } = await spotiClient.get("/me");
+  window.location.hash = "";
   return data;
 };
 
