@@ -44,7 +44,7 @@ const Network = ({
     },
     physics: {
       enabled: true,
-      stabilization: { iterations: 750, updateInterval: 50 },
+      stabilization: { iterations: 1000, updateInterval: 50 },
       repulsion: {
         centralGravity: 0.01,
         springLength: 10,
@@ -52,7 +52,7 @@ const Network = ({
         nodeDistance: 180,
         damping: 0.09,
       },
-      solver: "forceAtlas2Based",
+      solver: "barnesHut",
       barnesHut: {
         gravitationalConstant: -15000,
         centralGravity: 0.04,
@@ -68,7 +68,7 @@ const Network = ({
         springConstant: 0.08,
         springLength: 100,
         damping: 0.4,
-        avoidOverlap: 1,
+        avoidOverlap: 0.8,
       },
     },
   };
