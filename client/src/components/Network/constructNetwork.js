@@ -15,7 +15,14 @@ const constructNetwork = (topArtists, relatedArtists) => {
       id: artist.id,
       label: artist.name,
       title: artist.name,
-      color: "#1DB954",
+      color: {
+        border: "#2498AC",
+        background: "#2CBAD3",
+        highlight: {
+          border: "#3DC0D6",
+          background: "#90DBE8",
+        },
+      },
       size: 10,
     });
   });
@@ -41,7 +48,14 @@ const constructNetwork = (topArtists, relatedArtists) => {
           id: artist.id,
           label: artist.name,
           title: artist.name,
-          color: "purple",
+          color: {
+            border: "#913fab",
+            background: "#a84ec4",
+            highlight: {
+              border: "#913fab",
+              background: "#ca5bed",
+            },
+          },
           size: 10,
         });
       }

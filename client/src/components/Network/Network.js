@@ -22,7 +22,7 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
       improvedLayout: false,
     },
     edges: {
-      width: 0.15,
+      width: 0.55,
       color: { inherit: "from" },
       smooth: {
         type: "continuous",
@@ -32,7 +32,7 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
     // width: "100%",
     autoResize: true,
     nodes: {
-      color: "#A84EC4",
+      borderWidth: 2,
       shape: "dot",
       font: {
         color: "white",
