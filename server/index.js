@@ -33,7 +33,7 @@ app.get("/login", function (req, res) {
         response_type: "code",
         client_id: process.env.CLIENT_ID,
         scope:
-          "user-read-private user-read-email user-library-read user-top-read",
+          "streaming user-read-private user-read-playback-state user-modify-playback-state user-read-email user-library-read user-library-modify user-top-read",
         redirect_uri: redirect_uri,
         //show_dialog: true,
       })

@@ -4,8 +4,14 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import useStyles from "./styles";
 import constructNetwork from "./constructNetwork";
 
-const Network = ({ topArtists, relatedArtists, isLoading }) => {
-  const [graph, setGraph] = useState({ nodes: [], edges: [] });
+const Network = ({
+  graph,
+  setGraph,
+  topArtists,
+  relatedArtists,
+  isLoading,
+  setNodeId,
+}) => {
   const [network, setNetwork] = useState({});
   useEffect(() => {
     setGraph(constructNetwork(topArtists, relatedArtists));
@@ -28,8 +34,6 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
         type: "continuous",
       },
     },
-    // height: "100%",
-    // width: "100%",
     autoResize: true,
     nodes: {
       borderWidth: 2,
@@ -68,13 +72,10 @@ const Network = ({ topArtists, relatedArtists, isLoading }) => {
       },
     },
   };
-  // setIsLoading(false);
   const events = {
     select: ({ nodes, edges }) => {
-      console.log("Selected nodes:");
-      console.log(nodes);
-      console.log("Selected edges:");
-      console.log(edges);
+      console.log(nodes[0]);
+      setNodeId(nodes[0]);
     },
     stabilized: function (event) {
       var { iterations } = event;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Network from "../Network/Network";
+import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
 import useStyles from "./styles";
 import "./styles.css";
@@ -12,6 +13,8 @@ const Dashboard = () => {
   const [artistLimit, setArtistLimit] = useState(20);
   const [timeRange, setTimeRange] = useState("medium_term");
   const [isLoading, setIsLoading] = useState(true);
+  const [nodeId, setNodeId] = useState(null);
+  const [graph, setGraph] = useState({ nodes: [], edges: [] });
   const classes = useStyles();
 
   useEffect(() => {
@@ -60,7 +63,6 @@ const Dashboard = () => {
     };
     fetchTopArtists();
   }, [artistLimit, timeRange]);
-
   return (
     <>
       <Navbar
@@ -74,10 +76,16 @@ const Dashboard = () => {
       />
       <div className={classes.fullscreen}>
         <Network
+          graph={graph}
+          setGraph={setGraph}
           topArtists={topArtists}
           relatedArtists={relatedArtists}
           isLoading={isLoading}
+          setNodeId={setNodeId}
         />
+        <div className={classes.player}>
+          <MusicPlayer nodeId={nodeId} />
+        </div>
         <div className="loader" id="graph-spinner"></div>
       </div>
     </>
