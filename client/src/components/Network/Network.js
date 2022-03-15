@@ -75,7 +75,7 @@ const Network = ({
   const events = {
     select: ({ nodes, edges }) => {
       console.log(nodes[0]);
-      setNodeId(nodes[0]);
+      if (nodes[0] != null) setNodeId(nodes[0]); // don't set a nodeId to null, ensure music player always has ID to work with
     },
     stabilized: function (event) {
       var { iterations } = event;
