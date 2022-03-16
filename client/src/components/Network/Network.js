@@ -5,18 +5,25 @@ import useStyles from "./styles";
 import constructNetwork from "./constructNetwork";
 
 const Network = ({
-  graph,
-  setGraph,
   topArtists,
   relatedArtists,
   isLoading,
   setNodeId,
+  setShowBar,
+  setLoadingProgress,
+  stabilized,
+  setStabilized,
 }) => {
-  const [network, setNetwork] = useState({});
+  const [graph, setGraph] = useState({ nodes: [], edges: [] });
+
   useEffect(() => {
+    setStabilized(false);
     setGraph(constructNetwork(topArtists, relatedArtists));
   }, [relatedArtists]);
+
+  console.log("Has Stabilized: " + stabilized);
   const classes = useStyles();
+
   const data = {
     nodes: graph.nodes,
     edges: graph.edges,
@@ -80,18 +87,21 @@ const Network = ({
     stabilized: function (event) {
       var { iterations } = event;
       console.log("iterations: " + iterations);
+      setStabilized(true);
       // Here you should make the graph visible
     },
     startStabilizing: () => {
       console.log("Started stabilizing");
+      !stabilized && setShowBar(true);
     },
     stabilizationProgress: ({ iterations, total }) => {
       console.log("Network is stabilizing! " + JSON.stringify(iterations));
-      document.getElementById("graph-spinner").style.opacity = 1;
+      let progress = Math.floor((iterations / total) * 100);
+      setLoadingProgress(progress);
     },
     stabilizationIterationsDone: () => {
       console.log("Network has stabilized!");
-      document.getElementById("graph-spinner").style.opacity = 0;
+      setShowBar(false);
     },
   };
 
@@ -103,15 +113,7 @@ const Network = ({
       height="100vh"
     />
   ) : (
-    <Graph
-      graph={data}
-      options={options}
-      events={events}
-      getNetwork={(network) => {
-        //  if you want access to vis.js network api you can set the state in a parent component using this property
-        setNetwork(network);
-      }}
-    />
+    <Graph graph={data} options={options} events={events} />
   );
 };
 
