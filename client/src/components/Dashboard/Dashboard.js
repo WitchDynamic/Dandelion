@@ -24,7 +24,7 @@ const Dashboard = () => {
       const refreshToken = urlParams.get("refresh_token");
       const expiresIn = urlParams.get("expires_in");
       //convert to epoch
-      const expiration = Math.floor(new Date().getTime() / 1000.0) + expiresIn;
+      const expiration = new Date().getTime() / 1000.0 + expiresIn;
       //save in local storage
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
