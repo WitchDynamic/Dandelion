@@ -4,7 +4,7 @@ import Network from "../Network/Network";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
 import useStyles from "./styles";
-import "./styles.css";
+import LoadingBar from "../LoadingBar/LoadingBar";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -13,7 +13,9 @@ const Dashboard = () => {
   const [artistLimit, setArtistLimit] = useState(20);
   const [timeRange, setTimeRange] = useState("medium_term");
   const [isLoading, setIsLoading] = useState(true);
+  const [showBar, setShowBar] = useState(false);
   const [nodeId, setNodeId] = useState(null);
+  const [loadingProgress, setLoadingProgress] = React.useState(0);
   const [graph, setGraph] = useState({ nodes: [], edges: [] });
   const classes = useStyles();
 
@@ -63,6 +65,7 @@ const Dashboard = () => {
     };
     fetchTopArtists();
   }, [artistLimit, timeRange]);
+
   return (
     <>
       <Navbar
@@ -74,6 +77,11 @@ const Dashboard = () => {
         timeRange={timeRange}
         setTimeRange={setTimeRange}
       />
+      {showBar && (
+        <div className={classes.loadingBarDiv}>
+          <LoadingBar loadingProgress={loadingProgress} />
+        </div>
+      )}
       <div className={classes.fullscreen}>
         <Network
           graph={graph}
@@ -82,11 +90,12 @@ const Dashboard = () => {
           relatedArtists={relatedArtists}
           isLoading={isLoading}
           setNodeId={setNodeId}
+          setShowBar={setShowBar}
+          setLoadingProgress={setLoadingProgress}
         />
         <div className={classes.player}>
           <MusicPlayer nodeId={nodeId} />
         </div>
-        <div className="loader" id="graph-spinner"></div>
       </div>
     </>
   );

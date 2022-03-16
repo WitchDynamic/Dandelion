@@ -22,4 +22,10 @@ export default makeStyles(() => ({
     fontFamily: "Nexa",
     fontWeight: "bold",
   },
+  loadingBarDiv: {
+    position: "relative",
+    top: "40vh",
+    width: "35vw",
+    left: "32vw",
+  },
 }));
