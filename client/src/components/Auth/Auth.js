@@ -16,7 +16,6 @@ const Auth = () => {
       Math.floor(new Date().getTime() / 1000.0) >
       localStorage.getItem("expiration")
     ) {
-      console.log("Token was expired");
       dispatch(logout());
       setAccessToken(null);
     }

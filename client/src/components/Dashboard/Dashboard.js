@@ -13,7 +13,6 @@ const Dashboard = () => {
   const [timeRange, setTimeRange] = useState("medium_term");
   const [isLoading, setIsLoading] = useState(true);
   const [nodeId, setNodeId] = useState(null);
-  //const [graph, setGraph] = useState({ nodes: [], edges: [] });
 
   const classes = useStyles();
 
@@ -22,9 +21,9 @@ const Dashboard = () => {
       const urlParams = new URLSearchParams(window.location.hash);
       const accessToken = urlParams.get("#access_token");
       const refreshToken = urlParams.get("refresh_token");
-      const expiresIn = urlParams.get("expires_in");
+      const expiresIn = parseInt(urlParams.get("expires_in"));
       //convert to epoch
-      const expiration = new Date().getTime() / 1000.0 + expiresIn;
+      const expiration = Math.floor(new Date().getTime() / 1000.0) + expiresIn;
       //save in local storage
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
