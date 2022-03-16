@@ -5,18 +5,23 @@ import useStyles from "./styles";
 import constructNetwork from "./constructNetwork";
 
 const Network = ({
-  graph,
-  setGraph,
   topArtists,
   relatedArtists,
   isLoading,
   setNodeId,
   setShowBar,
   setLoadingProgress,
+  stabilized,
+  setStabilized,
 }) => {
+  const [graph, setGraph] = useState({ nodes: [], edges: [] });
+
   useEffect(() => {
+    setStabilized(false);
     setGraph(constructNetwork(topArtists, relatedArtists));
   }, [relatedArtists]);
+
+  console.log("Has Stabilized: " + stabilized);
   const classes = useStyles();
 
   const data = {
@@ -82,11 +87,12 @@ const Network = ({
     stabilized: function (event) {
       var { iterations } = event;
       console.log("iterations: " + iterations);
+      setStabilized(true);
       // Here you should make the graph visible
     },
     startStabilizing: () => {
       console.log("Started stabilizing");
-      setShowBar(true);
+      !stabilized && setShowBar(true);
     },
     stabilizationProgress: ({ iterations, total }) => {
       console.log("Network is stabilizing! " + JSON.stringify(iterations));

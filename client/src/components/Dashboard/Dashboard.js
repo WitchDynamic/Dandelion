@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
-import Network from "../Network/Network";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
 import useStyles from "./styles";
-import LoadingBar from "../LoadingBar/LoadingBar";
+import GraphVis from "../GraphVis/GraphVis";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -13,10 +12,9 @@ const Dashboard = () => {
   const [artistLimit, setArtistLimit] = useState(20);
   const [timeRange, setTimeRange] = useState("medium_term");
   const [isLoading, setIsLoading] = useState(true);
-  const [showBar, setShowBar] = useState(false);
   const [nodeId, setNodeId] = useState(null);
-  const [loadingProgress, setLoadingProgress] = React.useState(0);
-  const [graph, setGraph] = useState({ nodes: [], edges: [] });
+  //const [graph, setGraph] = useState({ nodes: [], edges: [] });
+
   const classes = useStyles();
 
   useEffect(() => {
@@ -77,25 +75,14 @@ const Dashboard = () => {
         timeRange={timeRange}
         setTimeRange={setTimeRange}
       />
-      {showBar && (
-        <div className={classes.loadingBarDiv}>
-          <LoadingBar loadingProgress={loadingProgress} />
-        </div>
-      )}
-      <div className={classes.fullscreen}>
-        <Network
-          graph={graph}
-          setGraph={setGraph}
-          topArtists={topArtists}
-          relatedArtists={relatedArtists}
-          isLoading={isLoading}
-          setNodeId={setNodeId}
-          setShowBar={setShowBar}
-          setLoadingProgress={setLoadingProgress}
-        />
-        <div className={classes.player}>
-          <MusicPlayer nodeId={nodeId} />
-        </div>
+      <GraphVis
+        topArtists={topArtists}
+        relatedArtists={relatedArtists}
+        isLoading={isLoading}
+        setNodeId={setNodeId}
+      />
+      <div className={classes.player}>
+        <MusicPlayer nodeId={nodeId} />
       </div>
     </>
   );

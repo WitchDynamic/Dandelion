@@ -6,14 +6,6 @@ export default makeStyles(() => ({
     justifyContent: "center",
     alignItems: "center",
   },
-  fullscreen: {
-    width: "100vw",
-    height: "100vh",
-    position: "fixed",
-    top: 0,
-    left: 0,
-    zIndex: -2,
-  },
   player: {
     position: "fixed",
     bottom: 0,
@@ -21,11 +13,5 @@ export default makeStyles(() => ({
     right: 0,
     fontFamily: "Nexa",
     fontWeight: "bold",
-  },
-  loadingBarDiv: {
-    position: "relative",
-    top: "40vh",
-    width: "35vw",
-    left: "32vw",
   },
 }));
