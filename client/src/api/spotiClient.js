@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const url = "http://localhost:5000";
+
 export const spotiClient = axios.create({
   baseURL: "https://api.spotify.com/v1",
   //   headers: {
@@ -13,7 +15,7 @@ spotiClient.interceptors.request.use(async (config) => {
     Math.floor(new Date().getTime() / 1000.0) >
     localStorage.getItem("expiration")
   ) {
-    const { data } = await axios.post("http://localhost:5000/refresh_token", {
+    const { data } = await axios.post(`${url}/refresh_token`, {
       refresh_token: localStorage.getItem("refreshToken"),
     });
     const expiration =
