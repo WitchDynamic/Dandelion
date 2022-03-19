@@ -16,7 +16,8 @@ spotiClient.interceptors.request.use(async (config) => {
     const { data } = await axios.post("http://localhost:5000/refresh_token", {
       refresh_token: localStorage.getItem("refreshToken"),
     });
-    const expiration = Math.floor(new Date().getTime() / 1000.0) + 3600;
+    const expiration =
+      Math.floor(new Date().getTime() / 1000.0) + data.expires_in;
     localStorage.setItem("accessToken", data.access_token);
     localStorage.setItem("expiration", expiration);
   }

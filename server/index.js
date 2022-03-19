@@ -107,9 +107,10 @@ app.post("/refresh_token", function (req, res) {
 
   request.post(authOptions, function (error, response, body) {
     if (!error && response.statusCode === 200) {
-      var access_token = body.access_token;
+      const { access_token, expires_in } = body;
       res.send({
         access_token: access_token,
+        expires_in: expires_in,
       });
     } else {
       // Possible refresh_token expired
