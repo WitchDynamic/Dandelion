@@ -4,7 +4,7 @@ import SpotifyPlayer from "react-spotify-web-playback";
 const MusicPlayer = ({ nodeId }) => {
   const token = localStorage.getItem("accessToken");
   const [currentId, setCurrentId] = useState(null);
-  console.log("Current node id: " + JSON.stringify(nodeId));
+  //console.log("Current node id: " + JSON.stringify(nodeId));
   if (!nodeId && !currentId) return <div></div>;
   if (currentId != nodeId && nodeId != null) setCurrentId(nodeId);
   return (

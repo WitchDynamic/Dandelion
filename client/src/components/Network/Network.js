@@ -21,7 +21,7 @@ const Network = ({
     setGraph(constructNetwork(topArtists, relatedArtists));
   }, [relatedArtists]);
 
-  console.log("Has Stabilized: " + stabilized);
+  //console.log("Has Stabilized: " + stabilized);
   const classes = useStyles();
 
   const data = {
@@ -81,26 +81,26 @@ const Network = ({
   };
   const events = {
     select: ({ nodes, edges }) => {
-      console.log(nodes[0]);
+      //console.log(nodes[0]);
       if (nodes[0] != null) setNodeId(nodes[0]); // don't set a nodeId to null, ensure music player always has ID to work with
     },
     stabilized: function (event) {
       var { iterations } = event;
-      console.log("iterations: " + iterations);
+      //console.log("iterations: " + iterations);
       setStabilized(true);
       // Here you should make the graph visible
     },
     startStabilizing: () => {
-      console.log("Started stabilizing");
+      //console.log("Started stabilizing");
       !stabilized && setShowBar(true);
     },
     stabilizationProgress: ({ iterations, total }) => {
-      console.log("Network is stabilizing! " + JSON.stringify(iterations));
+      //console.log("Network is stabilizing! " + JSON.stringify(iterations));
       let progress = Math.floor((iterations / total) * 100);
       setLoadingProgress(progress);
     },
     stabilizationIterationsDone: () => {
-      console.log("Network has stabilized!");
+      //console.log("Network has stabilized!");
       setShowBar(false);
     },
   };

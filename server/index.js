@@ -87,16 +87,16 @@ app.get("/callback", function (req, res) {
   });
 });
 
-app.get("/refresh_token", function (req, res) {
-  console.log(req);
-  var refresh_token = req.body;
-  console.log("refresh_token: " + refresh_token);
+app.post("/refresh_token", function (req, res) {
+  var { refresh_token } = req.body;
   var authOptions = {
     url: "https://accounts.spotify.com/api/token",
     headers: {
       Authorization:
         "Basic " +
-        Buffer.from(client_id + ":" + client_secret).toString("base64"),
+        Buffer.from(
+          process.env.CLIENT_ID + ":" + process.env.CLIENT_SECRET
+        ).toString("base64"),
     },
     form: {
       grant_type: "refresh_token",
@@ -107,9 +107,10 @@ app.get("/refresh_token", function (req, res) {
 
   request.post(authOptions, function (error, response, body) {
     if (!error && response.statusCode === 200) {
-      var access_token = body.access_token;
+      const { access_token, expires_in } = body;
       res.send({
         access_token: access_token,
+        expires_in: expires_in,
       });
     } else {
       // Possible refresh_token expired
@@ -125,7 +126,6 @@ app.get("/refresh_token", function (req, res) {
 
 app.post("/get_user", function (req, res) {
   const { accessToken } = req.body;
-  //console.log("req.body in get_user: " + accessToken);
   var options = {
     url: "https://api.spotify.com/v1/me",
     headers: { Authorization: "Bearer " + accessToken },
@@ -133,7 +133,6 @@ app.post("/get_user", function (req, res) {
   };
 
   request.get(options, function (error, response, body) {
-    //console.log("response in get_user: " + JSON.stringify(body));
     res.send(body);
   });
 });

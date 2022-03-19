@@ -29,9 +29,11 @@ const Dashboard = () => {
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("expiration", expiration);
     }
-    getUser().then((res) => {
-      setUser(res);
-    });
+    if (!user) {
+      getUser().then((res) => {
+        setUser(res);
+      });
+    }
 
     const relatedArtistHelper = async (artistId) => {
       const {
@@ -46,7 +48,6 @@ const Dashboard = () => {
         const relatedArtist = await relatedArtistHelper(artistList[artist].id);
         nodes = { ...nodes, [artistList[artist].id]: relatedArtist };
       }
-      console.log(nodes);
       setRelatedArtists(nodes);
       setIsLoading(false);
     };
