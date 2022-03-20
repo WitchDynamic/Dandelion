@@ -4,6 +4,7 @@ import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import { getUser, getArtists, getRelatedArtists } from "../../api/lib/getters";
 import useStyles from "./styles";
 import GraphVis from "../GraphVis/GraphVis";
+import Legend from "../Legend/Legend";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -75,6 +76,7 @@ const Dashboard = () => {
         timeRange={timeRange}
         setTimeRange={setTimeRange}
       />
+      <Legend />
       <GraphVis
         topArtists={topArtists}
         relatedArtists={relatedArtists}
