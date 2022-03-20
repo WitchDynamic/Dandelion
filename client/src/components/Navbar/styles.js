@@ -26,6 +26,7 @@ export default makeStyles(() => ({
     color: "#FFFFFF",
     marginLeft: "10px",
     textDecoration: "none",
+    fontFamily: "Nexa",
   },
   menuIcon: {
     marginRight: 2,

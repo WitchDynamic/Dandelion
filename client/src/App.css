@@ -1,20 +1,19 @@
 @font-face {
   font-family: "Nexa";
-  src: local("Nexa"), url(./fonts/Nexa-Regular.ttf) format("truetype");
+  src: url(./fonts/Nexa-Regular.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Nexa";
-  font-weight: 900;
-  src: local("Nexa"), url(./fonts/Nexa-Bold.ttf) format("truetype");
+  font-family: "NexaBold";
+  src: url(./fonts/Nexa-Bold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Nexa";
-  src: local("Nexa"), url(./fonts/Nexa-Light.ttf) format("truetype");
+  font-family: "NexaLight";
+  src: url(./fonts/Nexa-Light.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Nexa";
-  src: local("Nexa"), url(./fonts/Nexa-Thin.ttf) format("truetype");
+  font-family: "NexaThin";
+  src: url(./fonts/Nexa-Thin.ttf) format("truetype");
 }
