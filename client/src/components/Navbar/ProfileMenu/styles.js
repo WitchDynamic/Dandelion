@@ -5,7 +5,9 @@ const purple = "#5B5A99 !important";
 export default makeStyles(() => ({
   name: {
     color: purple,
-    fontSize: "17px",
+    fontSize: "18px",
+    fontFamily: "Nexa",
+    textTransform: "none",
   },
   menu: {
     marginTop: "40px",
@@ -15,5 +17,6 @@ export default makeStyles(() => ({
   },
   menuItem: {
     color: "#FFF !important",
+    fontFamily: "Nexa",
   },
 }));

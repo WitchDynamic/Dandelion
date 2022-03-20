@@ -12,6 +12,5 @@ export default makeStyles(() => ({
     left: 0,
     right: 0,
     fontFamily: "Nexa",
-    fontWeight: "bold",
   },
 }));
