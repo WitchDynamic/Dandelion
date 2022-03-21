@@ -11,7 +11,10 @@ export default makeStyles(() => ({
     paddingBottom: 15,
   },
   tDiv: {
-    maxWidth: "fit-content",
+    display: "flex",
+    alignItems: "center",
+    paddingTop: "10px",
+    marginLeft: "5px",
   },
   iconButton: {
     "&:hover": {
