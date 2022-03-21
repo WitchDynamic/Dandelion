@@ -11,4 +11,7 @@ export default makeStyles(() => ({
     display: "flex",
     flexDirection: "row",
   },
+  tooltipText: {
+    fontFamily: "Nexa",
+  },
 }));
