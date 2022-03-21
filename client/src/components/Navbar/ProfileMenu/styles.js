@@ -1,10 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const purple = "#5B5A99 !important";
-
 export default makeStyles(() => ({
   name: {
-    color: purple,
+    color: "#D4C0FF",
     fontSize: "18px",
     fontFamily: "Nexa",
     textTransform: "none",
