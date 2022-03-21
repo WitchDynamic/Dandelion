@@ -13,4 +13,9 @@ export default makeStyles(() => ({
   tDiv: {
     maxWidth: "fit-content",
   },
+  iconButton: {
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
 }));

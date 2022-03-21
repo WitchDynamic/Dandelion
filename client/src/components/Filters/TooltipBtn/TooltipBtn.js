@@ -1,10 +1,10 @@
 import React from "react";
-import { IconButton, Typography, Tooltip } from "@material-ui/core";
+import { IconButton, Tooltip } from "@material-ui/core";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import HelpIcon from "@material-ui/icons/Help";
 import useStyles from "./styles";
 
-const TooltipBtn = () => {
+const TooltipBtn = ({ description }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleTooltipClose = () => {
@@ -23,14 +23,6 @@ const TooltipBtn = () => {
     },
   };
 
-  const text = (
-    <Typography variant="body2">
-      Aliquam eget finibus ante, non facilisis lectus. Sed vitae dignissim est,
-      vel aliquam tellus. Praesent non nunc mollis, fermentum neque at, semper
-      arcu. Nullam eget est sed sem iaculis gravida eget vitae justo.
-    </Typography>
-  );
-
   return (
     <ClickAwayListener onClickAway={handleTooltipClose}>
       <div className={classes.tDiv}>
@@ -44,9 +36,12 @@ const TooltipBtn = () => {
           disableFocusListener
           disableHoverListener
           disableTouchListener
-          title={text}
+          title={description}
         >
-          <IconButton onClick={handleTooltipOpen}>
+          <IconButton
+            onClick={handleTooltipOpen}
+            classes={{ root: classes.iconButton }}
+          >
             <HelpIcon className={classes.icon} color="primary" />
           </IconButton>
         </Tooltip>
