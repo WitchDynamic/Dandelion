@@ -11,7 +11,6 @@ const Info = () => {
   const classes = useStyles();
   return (
     <div className={classes.infoContainer}>
-      <div className={classes.infoBg} />
       <div className={classes.infoWrapper}>
         <div className={classes.infoRow}>
           <div className={classes.columnOne}>
@@ -23,17 +22,17 @@ const Info = () => {
                 <InfoItem
                   icon={<VpnKeyIcon />}
                   primaryText="Get started in seconds"
-                  secondaryText="No need to create an account. Sign in securely with Spotify!"
+                  secondaryText="No need to create an account. Sign in securely with Spotify."
                 />
                 <InfoItem
                   icon={<BubbleChartIcon />}
-                  primaryText="Visualize!"
-                  secondaryText="Play with the filters to see your listening patterns."
+                  primaryText="Visualize"
+                  secondaryText="Adjust the time and artist filters to generate an interactive network of your listening pattern. Large purple nodes indicate a higher probability of matching your music taste."
                 />
                 <InfoItem
                   icon={<LibraryMusicIcon />}
-                  primaryText="Start discovering music"
-                  secondaryText="Click on any artist to instantly play their top songs."
+                  primaryText="Discover new music"
+                  secondaryText="Click on an artist to instantly play their top songs. Find something you like? Liking a song automatically likes it on Spotify too!"
                 />
               </List>
             </div>

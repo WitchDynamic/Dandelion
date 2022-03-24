@@ -12,15 +12,12 @@ const Hero = () => {
         <img className={classes.nodeBg} src={img} />
       </div>
       <div className={classes.heroContent}>
-        <Typography variant="h1" className={classes.heroTitle}>
-          SpotiGraph
+        <Typography className={classes.heroTitle}>SpotiGraph</Typography>
+        <hr className={classes.divider} />
+        <Typography className={classes.heroDescription}>
+          Visualize your listening habits and discover new music!
         </Typography>
-        <Typography className={classes.heroDescription} variant="h4">
-          See your music in a graph & stuff... :]
-        </Typography>
-        <div className={classes.heroBtnWrapper}>
-          <Auth />
-        </div>
+        <Auth />
       </div>
     </div>
   );

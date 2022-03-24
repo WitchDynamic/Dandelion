@@ -5,8 +5,7 @@ export default makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "0 30px",
-    height: "800px",
+    height: "900px",
     position: "relative",
     zIndex: 1,
     "&:before": {
@@ -46,7 +45,7 @@ export default makeStyles(() => ({
     zIndex: 4,
     maxWidth: "1200px",
     position: "absolute",
-    padding: "8px 24px",
+    padding: "0 24px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -54,38 +53,53 @@ export default makeStyles(() => ({
 
   heroTitle: {
     color: "#fff",
-    fontSize: "48px",
+    fontSize: "88px",
+    fontFamily: "Montserrat",
+    fontWeight: "600",
     textAlign: "center",
+    letterSpacing: "1.5px",
+    textShadow:
+      "2px 7px 5px rgba(0,0,0,0.3),  0px -4px 10px rgba(255,255,255,0.2)",
 
     "@media screen and (max-width: 768px)": {
-      fontSize: "40px",
+      fontSize: "60px",
     },
 
     "@media screen and (max-width: 480px)": {
-      fontSize: "32px",
+      fontSize: "52px",
     },
   },
 
   heroDescription: {
-    marginTop: "24px",
+    marginTop: "30px",
     color: "#fff",
-    fontSize: "24px",
+    fontSize: "26px",
     textAlign: "center",
     maxWidth: "600px",
+    fontFamily: "Montserrat",
+    fontWeight: "400",
 
     "@media screen and (max-width: 768px)": {
-      fontSize: "22px",
+      fontSize: "25px",
     },
 
     "@media screen and (max-width: 480px)": {
-      fontSize: "18px",
+      fontSize: "20px",
     },
   },
+  divider: {
+    margin: "10px",
+    width: "660px",
+    backgroundColor: "#9BA4A6",
+    height: "1px",
+    border: "none",
 
-  heroBtnWrapper: {
-    marginTop: "32px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    "@media screen and (max-width: 768px)": {
+      width: "400px",
+    },
+
+    "@media screen and (max-width: 480px)": {
+      width: "300px",
+    },
   },
 }));

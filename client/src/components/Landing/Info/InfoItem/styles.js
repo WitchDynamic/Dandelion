@@ -6,13 +6,21 @@ export default makeStyles(() => ({
     color: "white",
   },
 
+  infoList: {
+    "&.MuiListItem-gutters": {
+      paddingLeft: "0px",
+    },
+  },
+
   infoItemText: {
     "& .MuiListItemText-primary": {
+      fontFamily: "Montserrat",
       color: "#fff",
       fontSize: "20px",
-      fontWeight: "bold",
+      fontWeight: "600",
     },
     "& .MuiListItemText-secondary": {
+      fontFamily: "Montserrat",
       fontSize: "18px",
       color: "#D4C0FF",
     },

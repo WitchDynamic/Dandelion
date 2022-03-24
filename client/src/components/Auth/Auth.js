@@ -30,7 +30,7 @@ const Auth = () => {
           className={classes.btn}
           component="a"
           href="http://localhost:5000/login"
-          style={{ color: "#FFF" }}
+          variant="outlined"
         >
           Log in with Spotify
         </Button>
@@ -39,7 +39,7 @@ const Auth = () => {
           className={classes.btn}
           component={Link}
           href="/dashboard"
-          style={{ color: "#FFF" }}
+          variant="outlined"
         >
           Go to Dashboard
         </Button>

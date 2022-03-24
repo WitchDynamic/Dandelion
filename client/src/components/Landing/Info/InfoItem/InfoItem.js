@@ -10,7 +10,7 @@ import useStyles from "./styles";
 const InfoItem = ({ icon, primaryText, secondaryText }) => {
   const classes = useStyles();
   return (
-    <ListItem>
+    <ListItem className={classes.infoList}>
       <ListItemAvatar>
         <Avatar className={classes.itemAvatar}>{icon}</Avatar>
       </ListItemAvatar>
