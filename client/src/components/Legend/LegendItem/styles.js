@@ -13,6 +13,6 @@ export default makeStyles(() => ({
   },
   legendLabel: {
     color: "#FFF",
-    fontFamily: "Nexa",
+    fontFamily: "Montserrat",
   },
 }));

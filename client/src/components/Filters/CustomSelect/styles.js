@@ -6,8 +6,7 @@ export default makeStyles(() => ({
     minWidth: 200,
     background: "white",
     color: deepPurple[500],
-    fontWeight: 200,
-    fontFamily: "Nexa",
+    fontFamily: "Montserrat",
     borderStyle: "none",
     borderWidth: 2,
     borderRadius: 5,
@@ -37,10 +36,9 @@ export default makeStyles(() => ({
     paddingBottom: 0,
     background: "white",
     "& li": {
-      fontWeight: 200,
       paddingTop: 12,
       paddingBottom: 12,
-      fontFamily: "Nexa",
+      fontFamily: "Montserrat",
     },
     "& li:hover": {
       background: deepPurple[100],
@@ -60,6 +58,6 @@ export default makeStyles(() => ({
     "&.Mui-focused": {
       color: "#B999FF",
     },
-    fontFamily: "Nexa",
+    fontFamily: "Montserrat",
   },
 }));

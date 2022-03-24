@@ -10,8 +10,9 @@ export default makeStyles(() => ({
   gridItem: {
     display: "flex",
     flexDirection: "row",
+    paddingBottom: "10px",
   },
   tooltipText: {
-    fontFamily: "Nexa",
+    fontFamily: "Montserrat",
   },
 }));

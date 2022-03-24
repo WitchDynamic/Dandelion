@@ -9,16 +9,13 @@ export default makeStyles(() => ({
   icon: {
     paddingTop: 14,
     paddingBottom: 15,
+    boxSizing: "content-box",
   },
   tDiv: {
     display: "flex",
     alignItems: "center",
     paddingTop: "10px",
     marginLeft: "5px",
-  },
-  iconButton: {
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
+    boxSizing: "content-box",
   },
 }));
