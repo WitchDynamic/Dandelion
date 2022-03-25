@@ -1,18 +1,16 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
-  label: {
-    color: "#FFF",
-  },
-  grid: {
-    marginTop: "0.7%",
-  },
-  gridItem: {
+  graphContainer: {
     display: "flex",
-    flexDirection: "row",
-    paddingBottom: "10px",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  tooltipText: {
+  player: {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    right: 0,
     fontFamily: "Montserrat",
   },
 }));

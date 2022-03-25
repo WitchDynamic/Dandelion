@@ -1,18 +1,18 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
-  label: {
-    color: "#FFF",
+  "@global": {
+    ".MuiTooltip-arrow": {
+      color: "rgb(18, 16, 45, 0.95)",
+    },
   },
-  grid: {
-    marginTop: "0.7%",
-  },
-  gridItem: {
+  legendItemDiv: {
     display: "flex",
     flexDirection: "row",
-    paddingBottom: "10px",
+    alignItems: "center",
   },
-  tooltipText: {
+  legendLabel: {
+    color: "#FFF",
     fontFamily: "Montserrat",
   },
 }));

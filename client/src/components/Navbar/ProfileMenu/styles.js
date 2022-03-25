@@ -1,10 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const purple = "#5B5A99 !important";
-
 export default makeStyles(() => ({
   name: {
-    color: purple,
+    color: "#D4C0FF !important",
+    fontSize: "18px",
+    fontFamily: "Montserrat",
+    textTransform: "none",
   },
   menu: {
     marginTop: "40px",
@@ -14,5 +15,6 @@ export default makeStyles(() => ({
   },
   menuItem: {
     color: "#FFF !important",
+    fontFamily: "Montserrat",
   },
 }));

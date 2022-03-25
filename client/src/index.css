@@ -1,5 +1,9 @@
 body {
   background-color: #17153a;
+  margin: 0;
+}
+#root {
+  height: 0;
 }
 /* 
 code {

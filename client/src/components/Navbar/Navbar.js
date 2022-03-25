@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 import ProfileMenu from "./ProfileMenu/ProfileMenu";
 import useStyles from "./styles";
 import Sidebar from "../Sidebar/Sidebar";
+import Filters from "../Filters/Filters";
 
-const Navbar = ({ name, profile, img }) => {
+const Navbar = ({
+  name,
+  profile,
+  img,
+  artistLimit,
+  setArtistLimit,
+  timeRange,
+  setTimeRange,
+}) => {
   const classes = useStyles();
 
   return (
@@ -13,14 +22,22 @@ const Navbar = ({ name, profile, img }) => {
       <AppBar className={classes.appBar} position="static">
         <Toolbar className={classes.toolbar}>
           <Sidebar />
-          <Typography
-            component={Link}
-            to="/"
-            className={classes.title}
-            variant="h5"
-          >
-            SpotiGraph
-          </Typography>
+          <div className={classes.titleContainer}>
+            <Typography
+              component={Link}
+              to="/"
+              className={classes.title}
+              variant="h4"
+            >
+              SpotiGraph
+            </Typography>
+          </div>
+          <Filters
+            artistLimit={artistLimit}
+            setArtistLimit={setArtistLimit}
+            timeRange={timeRange}
+            setTimeRange={setTimeRange}
+          />
           <Avatar className={classes.avatar} alt="spotify-img" src={img}>
             {name?.charAt(0)}
           </Avatar>

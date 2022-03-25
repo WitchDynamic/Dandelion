@@ -4,9 +4,13 @@ export default makeStyles(() => ({
   "@global": {
     ".vis-network": {
       backgroundColor: "#1f1b51",
-      marginTop: "20px",
+      //marginTop: "20px",
       boxShadow: "0 10px 10px -5px",
-      height: "600px !important",
+    },
+  },
+  skelly: {
+    "&.MuiSkeleton-text": {
+      transform: "scale(1, 1)",
     },
   },
 }));

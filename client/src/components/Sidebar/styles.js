@@ -8,7 +8,8 @@ export default makeStyles(() => ({
     "& .MuiPaper-root": {
       background: "linear-gradient(180deg, #1c193e, rgba(27, 25, 66), #17163B)",
       width: "12%",
-      minWidth: "fit-content",
+      minWidth: "250px",
+      maxWidth: "250px",
     },
     "& .MuiListItem-gutters": {
       paddingLeft: "30px",
@@ -17,10 +18,12 @@ export default makeStyles(() => ({
       backgroundColor: "transparent",
     },
   },
-  title: {
+
+  sidebarTitle: {
     textAlign: "center",
     marginTop: "20px",
     color: "#FFFFFF",
+    fontFamily: "Montserrat",
   },
 
   listMenu: {
@@ -47,5 +50,24 @@ export default makeStyles(() => ({
   menuIcon: {
     color: "#A84EC4",
     fontSize: "40px",
+  },
+
+  sidebarBox: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    maxWidth: "250px",
+  },
+
+  sidebarBodyDiv: {
+    marginTop: "70px",
+    padding: "0 3px",
+  },
+
+  sidebarBodyText: {
+    color: "#FFFFFF",
+    textAlign: "center",
+    marginBottom: "20px",
+    fontFamily: "Montserrat",
   },
 }));
