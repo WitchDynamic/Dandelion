@@ -23,6 +23,7 @@ export default makeStyles(() => ({
     textAlign: "center",
     marginTop: "20px",
     color: "#FFFFFF",
+    fontFamily: "Montserrat",
   },
 
   listMenu: {
@@ -57,12 +58,16 @@ export default makeStyles(() => ({
     flexDirection: "column",
     maxWidth: "250px",
   },
+
   sidebarBodyDiv: {
     marginTop: "70px",
+    padding: "0 3px",
   },
+
   sidebarBodyText: {
     color: "#FFFFFF",
     textAlign: "center",
     marginBottom: "20px",
+    fontFamily: "Montserrat",
   },
 }));

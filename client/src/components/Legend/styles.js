@@ -14,6 +14,6 @@ export default makeStyles(() => ({
     borderRadius: 5,
   },
   legendText: {
-    fontFamily: "Nexa",
+    fontFamily: "Montserrat",
   },
 }));

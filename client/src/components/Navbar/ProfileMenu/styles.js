@@ -4,7 +4,7 @@ export default makeStyles(() => ({
   name: {
     color: "#D4C0FF !important",
     fontSize: "18px",
-    fontFamily: "Nexa",
+    fontFamily: "Montserrat",
     textTransform: "none",
   },
   menu: {
@@ -15,6 +15,6 @@ export default makeStyles(() => ({
   },
   menuItem: {
     color: "#FFF !important",
-    fontFamily: "Nexa",
+    fontFamily: "Montserrat",
   },
 }));
