@@ -29,7 +29,7 @@ const Navbar = ({
               className={classes.title}
               variant="h4"
             >
-              SpotiGraph
+              Dandelion
             </Typography>
           </div>
           <Filters

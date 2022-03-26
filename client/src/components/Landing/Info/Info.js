@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, List } from "@material-ui/core";
 import useStyles from "./styles";
-import img from "../../../images/InfoImg.png";
+import img from "../../../images/DandelionInfoImg.png";
 import InfoItem from "./InfoItem/InfoItem";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
@@ -39,7 +39,7 @@ const Info = () => {
           </div>
           <div className={classes.columnTwo}>
             <div className={classes.imageWrap}>
-              <img src={img} className={classes.infoImg} />
+              <img src={img} className={classes.infoImg} alt="" />
             </div>
           </div>
         </div>

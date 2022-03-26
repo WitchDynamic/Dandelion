@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Select, MenuItem, FormControl, InputLabel } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./styles";

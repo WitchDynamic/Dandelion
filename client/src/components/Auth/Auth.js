@@ -29,7 +29,7 @@ const Auth = () => {
         <Button
           className={classes.btn}
           component="a"
-          href="http://localhost:5000/login"
+          href="https://dandelion-react-backend.herokuapp.com/login"
           variant="outlined"
         >
           Log in with Spotify

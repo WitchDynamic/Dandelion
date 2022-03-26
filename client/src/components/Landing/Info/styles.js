@@ -66,7 +66,6 @@ export default makeStyles(() => ({
   infoTitle: {
     color: "#fff",
     fontSize: "40px",
-    fontWeight: "700",
     letterSpacing: "1px",
     marginBottom: "25px",
     fontFamily: "Montserrat",

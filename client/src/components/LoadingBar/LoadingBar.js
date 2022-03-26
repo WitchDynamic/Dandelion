@@ -1,5 +1,5 @@
 import React from "react";
-import { LinearProgress, Typography, Box } from "@material-ui/core";
+import { LinearProgress, Box } from "@material-ui/core";
 import useStyles from "./styles";
 
 const LoadingBar = ({ loadingProgress }) => {

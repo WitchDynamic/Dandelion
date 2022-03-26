@@ -24,7 +24,7 @@ app.get("/", function (req, res) {
   res.send("Hello world!");
 });
 
-var redirect_uri = "http://localhost:5000/callback";
+var redirect_uri = `${process.env.REACT_APP_API_URL}/callback`;
 
 app.get("/login", function (req, res) {
   res.redirect(
@@ -67,7 +67,7 @@ app.get("/callback", function (req, res) {
 
       // pass the token to the browser to make requests from there
       res.redirect(
-        "http://localhost:3000/dashboard/#" +
+        `${process.env.REDIRECT_URI}/dashboard/#` +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token,
@@ -78,7 +78,7 @@ app.get("/callback", function (req, res) {
       console.log(error);
       // If the user does not accept your request or if an error has occurred
       res.redirect(
-        "http://localhost:3000/#" +
+        `${process.env.REDIRECT_URI}/#` +
           querystring.stringify({
             error: "invalid_token",
           })
@@ -115,7 +115,7 @@ app.post("/refresh_token", function (req, res) {
     } else {
       // Possible refresh_token expired
       res.redirect(
-        "http://localhost:3000/#" +
+        `${process.env.REDIRECT_URI}/#` +
           querystring.stringify({
             error: "invalid_refresh_token",
           })

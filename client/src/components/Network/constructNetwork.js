@@ -1,12 +1,4 @@
-import { logout } from "../../actions/auth";
-
 const constructNetwork = (topArtists, relatedArtists) => {
-  // console.log(
-  //   "in construct newtork (relatedArtists): " + JSON.stringify(relatedArtists)
-  // );
-  // console.log(
-  //   "in construct network (topArtists): " + JSON.stringify(topArtists)
-  // );
   const artistNodes = [];
   const artistEdges = [];
 
