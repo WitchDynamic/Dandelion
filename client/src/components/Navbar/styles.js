@@ -5,9 +5,7 @@ const purple = "#5B5A99";
 export default makeStyles(() => ({
   appBar: {
     borderRadius: 5,
-    //backgroundColor: "transparent !important",
     backgroundColor: "rgba(0, 0, 0, 0.2)",
-    //boxShadow: "none",
   },
   toolbar: {
     paddingLeft: "0px",
@@ -24,12 +22,14 @@ export default makeStyles(() => ({
   },
   title: {
     color: "#FFFFFF",
-    marginLeft: "10px",
     textDecoration: "none",
     fontFamily: "Montserrat",
-    //fontWeight: "600",
   },
   menuIcon: {
     marginRight: 2,
+  },
+  dandelionIcon: {
+    maxHeight: "45px",
+    marginLeft: "10px",
   },
 }));

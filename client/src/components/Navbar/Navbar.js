@@ -3,7 +3,7 @@ import { AppBar, Box, Toolbar, Avatar, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import ProfileMenu from "./ProfileMenu/ProfileMenu";
 import useStyles from "./styles";
-import Sidebar from "../Sidebar/Sidebar";
+import DandelionIcon from "../../images/DandelionIconWhite.png";
 import Filters from "../Filters/Filters";
 
 const Navbar = ({
@@ -21,7 +21,11 @@ const Navbar = ({
     <Box>
       <AppBar className={classes.appBar} position="static">
         <Toolbar className={classes.toolbar}>
-          <Sidebar />
+          <img
+            src={DandelionIcon}
+            className={classes.dandelionIcon}
+            alt="Dandelion Icon"
+          />
           <div className={classes.titleContainer}>
             <Typography
               component={Link}
