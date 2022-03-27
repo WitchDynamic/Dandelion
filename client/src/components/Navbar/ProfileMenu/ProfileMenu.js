@@ -53,7 +53,12 @@ const ProfileMenu = ({ name, profile }) => {
           horizontal: "left",
         }}
       >
-        <MenuItem className={classes.menuItem} component="a" href={profile}>
+        <MenuItem
+          className={classes.menuItem}
+          target="_blank"
+          component="a"
+          href={profile}
+        >
           My Profile
         </MenuItem>
         <MenuItem className={classes.menuItem} onClick={handleLogout}>

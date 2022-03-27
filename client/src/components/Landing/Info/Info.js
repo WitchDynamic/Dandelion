@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, List } from "@material-ui/core";
 import useStyles from "./styles";
-import img from "../../../images/DandelionInfoImg.png";
+import img from "../../../images/DandelionInfo.png";
 import InfoItem from "./InfoItem/InfoItem";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
@@ -32,7 +32,17 @@ const Info = () => {
                 <InfoItem
                   icon={<LibraryMusicIcon />}
                   primaryText="Discover new music"
-                  secondaryText="Click on an artist to instantly play their top songs. Find something you like? Liking a song automatically likes it on Spotify too!"
+                  secondaryText={
+                    <p>
+                      Click on an artist to instantly play their top songs. Find
+                      something you like? Liking a song automatically adds it to
+                      your Spotify liked songs!
+                      <br />
+                      <span className={classes.italicText}>
+                        *Music player only available to Spotify premium members
+                      </span>
+                    </p>
+                  }
                 />
               </List>
             </div>

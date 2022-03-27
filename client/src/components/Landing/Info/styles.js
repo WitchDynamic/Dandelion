@@ -89,4 +89,9 @@ export default makeStyles(() => ({
       maxWidth: "100%",
     },
   },
+
+  italicText: {
+    fontStyle: "italic",
+    color: "#E5DCF9;",
+  },
 }));
