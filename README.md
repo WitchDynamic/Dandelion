@@ -12,7 +12,45 @@
 Dandelion is a visualization tool that plots the relationships between the user's preferred artists from Spotify. This paints a picture of their general listening pattern.
 It offers insight into potential new artists the user might also enjoy. This app is fully interactive and utilizes open source tools to offer a unique and fun web experience!
 
+## Features
+Filter the top artists shown by selecting the time range and the amount of artists to fetch
+
+Time Range
+> Short Term: Last 4 weeks of listening data
+> 
+> Medium Term: Approximately last 6 months worth of data
+> 
+> Long Term: Calculated from several years of data and including all new data as it becomes available
+
+Artist Range
+> Amount of top artists to display on the graph
+> 1, 5, 10, 20, 30, 40, 50
+
+Media player
+
+> Select any artist to instantly play their top songs. 
+> 
+> Liking a song automatically adds it to your Spotify liked songs playlist.
+> 
+> Web playback allows you to control what device the music plays on directly from the app.
+
+
 ## Screenshots
-<img src="https://imgur.com/pYJFOme.png" alt="Dandelion Landing Page" width="700">
-</br>
-<img src="https://imgur.com/tc6yyXk.png" alt="Dandelion Dashboard" width="700">
+<img src="https://imgur.com/pYJFOme.png" alt="Dandelion Landing Page" width="950">
+</br></br>
+<img src="https://imgur.com/ZfWkelD.png" alt="Dandelion Dashboard" width="950">
+</br></br>
+<img src="docs/DandelionGif.gif" alt="Dandelion Gif" width="950">
+
+## Technologies
+### Front-End:
+- React
+- Redux
+- Material UI and JSS
+- vis.js
+- Axios
+
+### Back-End:
+- Node.js
+- Express
+- Authorization code flow
