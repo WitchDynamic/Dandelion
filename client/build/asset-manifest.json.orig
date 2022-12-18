@@ -1,0 +1,33 @@
+{
+  "files": {
+<<<<<<< HEAD
+    "main.css": "/static/css/main.55d4f87c.css",
+    "main.js": "/static/js/main.21af2383.js",
+    "static/media/NodeBackground.png": "/static/media/NodeBackground.0accb2a9f3f40ebd8784.png",
+    "static/media/DandelionInfoImg.png": "/static/media/DandelionInfoImg.537d52d2323e0c750345.png",
+    "index.html": "/index.html",
+    "main.55d4f87c.css.map": "/static/css/main.55d4f87c.css.map",
+    "main.21af2383.js.map": "/static/js/main.21af2383.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.55d4f87c.css",
+    "static/js/main.21af2383.js"
+=======
+    "main.css": "/static/css/main.13491b68.css",
+    "main.js": "/static/js/main.738a2b7b.js",
+    "static/media/NodeBackground.png": "/static/media/NodeBackground.0accb2a9f3f40ebd8784.png",
+    "static/media/DandelionInfoImg.png": "/static/media/DandelionInfoImg.537d52d2323e0c750345.png",
+    "static/media/Nexa-Regular.ttf": "/static/media/Nexa-Regular.9ee82be23e8a0a8654f4.ttf",
+    "static/media/Nexa-Thin.ttf": "/static/media/Nexa-Thin.497adf279aaae764b001.ttf",
+    "static/media/Nexa-Bold.ttf": "/static/media/Nexa-Bold.8cda3b75a211cb7f76d6.ttf",
+    "static/media/Nexa-Light.ttf": "/static/media/Nexa-Light.ed146e17727937214aed.ttf",
+    "index.html": "/index.html",
+    "main.13491b68.css.map": "/static/css/main.13491b68.css.map",
+    "main.738a2b7b.js.map": "/static/js/main.738a2b7b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13491b68.css",
+    "static/js/main.738a2b7b.js"
+>>>>>>> tmp
+  ]
+}
