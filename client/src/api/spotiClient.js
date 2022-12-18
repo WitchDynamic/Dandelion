@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://spotigraph-backend.herokuapp.com";
+const url = "https://dandelion-backend.onrender.com";
 
 export const spotiClient = axios.create({
   baseURL: "https://api.spotify.com/v1",
