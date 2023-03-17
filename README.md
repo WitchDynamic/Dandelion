@@ -5,7 +5,7 @@
 </h1>
 <p align="center" style="font-size: 1.2rem;">A Network visualization React app for graphing Spotify top artists and their relationships.
 </br></br>
-<a href="https://dandelion-react.herokuapp.com">Check out Dandelion here!</p>
+<a href="https://dandelion-82b1.onrender.com/">Check out Dandelion here!</p>
 <hr />
 
 ## About The App
